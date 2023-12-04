@@ -1,0 +1,25 @@
+---
+  - name: Install webserver requirements for vm1 and vm2
+    hosts: vm1 vm2
+    tasks:
+      - name: Install Nodejs
+        apt:
+          name: nodejs
+          state: latest
+      - name: Install Appache
+        apt:
+          name: apache2
+          state: latest
+  - name: Install database requirements for vm2
+    hosts: vm2
+    tasks:
+      - name: Install mariaDB
+        apt:
+          name: mariadb-server
+          state: latest
+  - name: Setting up web enviroment
+    hosts: vm1 vm2
+    tasks:
+      - name: Run script
+        script:
+          cmd: ~/project/gitupdater.sh

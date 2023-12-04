@@ -1,0 +1,4 @@
+1) Transition from ssh to html git cloning
+2) Handle first time git clones when using ssh
+3) Fix cronjob to function as intended
+4) Simplify setup steps

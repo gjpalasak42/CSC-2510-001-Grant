@@ -1,0 +1,37 @@
+Machine requirements for compatibility with project CSC-2510-001-Grant
+
+
+Ansible Manager (1 per environment):
+	OS: CentOS
+	Installs: Ansible
+	Additional notes:
+		(Files in ~/etc/ansible):
+			Ensure ansible config has the following settings:
+				host_key_checking = False
+		(Files in ~/etc/ssh):
+			sshd_config should have the following settings:
+				PermitRootLogin yes
+				PasswordAuthentication yes
+
+
+VM1 - The webserver(s) (1 or more per environment):
+	OS: Debian Linux
+	Installs: SSH, git
+	Additional notes:
+		(Files in ~/etc/ssh/sshd_config):
+			PermitRootLogin yes
+			PasswordAuthentication yes
+		Ensure SSH is enabled and the ansible manager will be able to reach the machine via a consistent ip address. 
+		Make sure the root password is the same that is set in the ansible managers host file (see readme.txt "Setting up ansible configuration files" section)
+		Ensure root on the machine is capable of cloning a git repository from GitHub.com via ssh.
+
+VM2 - The webserver(s)/database hybrid (1 or more per environment):
+	OS: Debian Linux
+	Installs: SSH, git
+	Additional notes:
+		(Files in ~/etc/ssh/sshd_config):
+			PermitRootLogin yes
+			PasswordAuthentication yes
+		Ensure SSH is enabled and the ansible manager will be able to reach the machine via a consistent ip address. 
+		Make sure the root password is the same that is set in the ansible managers host file (see readme.txt "Setting up ansible configuration files" section)
+		Ensure root on the machine is capable of cloning a git repository from GitHub.com via ssh.
