@@ -22,4 +22,4 @@
     tasks:
       - name: Run script
         script:
-          cmd: ~/project/gitupdater.sh
+          cmd: ./gitupdater.sh
